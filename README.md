@@ -21,3 +21,35 @@
 ### Cursor
 
 ### ...
+
+## Linux Vs Apple
+
+The `main` branch has the common/shared config, and the `linux` and `apple` branches have their own custom tweaks. ALL shared changes should be pushed to `main`. After pushing to main, run `git sync` to sync the changes on the other two branches.
+
+For new machines, you need to run this to set the git alias:
+
+```bash
+git config --global --replace-all alias.sync '!f() { \
+  echo "Syncing main to linux & apple..."; \
+  if git rev-parse --verify linux >/dev/null 2>&1; then \
+    git checkout linux; \
+  else \
+    echo "  Creating linux branch from main"; \
+    git checkout -b linux main; \
+  fi; \
+  git merge main --no-edit && (git push -u origin linux 2>/dev/null || git push); \
+  \
+  if git rev-parse --verify apple >/dev/null 2>&1; then \
+    git checkout apple; \
+  else \
+    echo "  Creating apple branch from main"; \
+    git checkout -b apple main; \
+  fi; \
+  git merge main --no-edit && (git push -u origin apple 2>/dev/null || git push); \
+  \
+  git checkout main; \
+  echo "Done! Both branches synced."; \
+}; f'
+```
+
+Any `linux` or `apple` specific changes should only be pushed to that branch.
