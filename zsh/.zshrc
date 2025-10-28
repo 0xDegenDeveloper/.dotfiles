@@ -40,7 +40,7 @@ alias reset='source $HOME/.zshrc'
 
 alias home='cd ~'
 alias cl='clear'
-alias ls='colorls'
+#alias ls='colorls'
 
 alias nf='/Users/mattcarter/NovemberFork/v3 && nvim'
 
@@ -129,7 +129,7 @@ _scarb() {
 autoload -Uz compinit && compinit
 compdef _scarb scarb
 
-# END SCARB COMPLETIONS
-export PATH=$PATH:$(go env GOPATH)/bin
-
-export PATH="$PATH:/Users/mattcarter/.risc0/bin"
+# # END SCARB COMPLETIONS
+# export PATH=$PATH:$(go env GOPATH)/bin
+# 
+# export PATH="$PATH:/Users/mattcarter/.risc0/bin"
