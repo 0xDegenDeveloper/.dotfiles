@@ -1,6 +1,0 @@
-# ~/.gitconfig
-[alias]
-    sync = "!f() { \
-        git checkout linux && git merge main --no-edit && git push && \
-        git checkout apple && git merge main --no-edit && git push && \
-        git checkout main; }; f"
