@@ -1,21 +1,27 @@
 [alias]
     sync = "!f() { \
-        echo 'Syncing main → linux & apple...'; \
+        echo 'Syncing main to linux & apple...'; \
         \
-        # linux branch \
-        if ! git checkout linux 2>/dev/null; then \
-            echo '  → Creating linux branch from main'; \
+        # ---- linux ---- \
+        if git rev-parse --verify linux >/dev/null 2>&1; then \
+            git checkout linux; \
+        else \
+            echo '  Creating linux branch from main'; \
             git checkout -b linux main; \
         fi; \
-        git merge main --no-edit && git push -u origin linux 2>/dev/null || git push; \
+        git merge main --no-edit && \
+        (git push -u origin linux 2>/dev/null || git push); \
         \
-        # apple branch \
-        if ! git checkout apple 2>/dev/null; then \
-            echo '  → Creating apple branch from main'; \
+        # ---- apple ---- \
+        if git rev-parse --verify apple >/dev/null 2>&1; then \
+            git checkout apple; \
+        else \
+            echo '  Creating apple branch from main'; \
             git checkout -b apple main; \
         fi; \
-        git merge main --no-edit && git push -u origin apple 2>/dev/null || git push; \
+        git merge main --no-edit && \
+        (git push -u origin apple 2>/dev/null || git push); \
         \
         git checkout main; \
-        echo 'Done! Both branches synced.'; \
+        echo 'Done! Both branches are up to date.'; \
     }; f"
