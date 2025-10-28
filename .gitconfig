@@ -19,3 +19,4 @@
         git checkout main; \
         echo 'Done! Both branches synced.'; \
     }; f"
+
