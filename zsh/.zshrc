@@ -55,9 +55,9 @@ alias nnn='nvim'
 
 alias zshconfig='cd $HOME && nvim .zshrc'
 
-alias nf='/Users/mattcarter/NovemberFork/v3 && nvim'
-alias nm='/Users/mattcarter/Work/Nethermind && nvim'
-alias work='/Users/mattcarter/Work && nvim'
+alias nf='/Users/mattcarter/NovemberFork/'
+alias nm='/Users/mattcarter/Work/Nethermind'
+alias work='/Users/mattcarter/Work'
 
 
 alias gs='git status'
@@ -70,10 +70,10 @@ alias money='hours'
 alias tax='hours'
 alias taxes='hours'
 
-alias pitchlake='/Users/mattcarter/Work/Nethermind/Pitchlake/Monorepo && nvim'
-alias oif='/Users/mattcarter/Work/Nethermind/OIF && nvim'
+alias pitchlake='/Users/mattcarter/Work/Nethermind/Pitchlake/Monorepo'
+alias oif='/Users/mattcarter/Work/Nethermind/OIF'
 alias pl='pitchlake'
-alias sprouts='/Users/mattcarter/Work/Side_gigs/StarkSprouts && cursor .'
+alias sprouts='/Users/mattcarter/Work/Side_gigs/StarkSprouts'
 
 alias sb='scarb build'
 alias st='scarb test'
