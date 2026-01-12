@@ -18,3 +18,5 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+export PATH="$PATH:/home/matt/.config/.foundry/bin"

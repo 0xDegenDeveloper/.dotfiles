@@ -1,0 +1,16 @@
+#background = #1a1b26
+background-opacity = 0.4
+background-blur = 40
+
+custom-shader = ./ghostty-shaders/in-game-crt-cursor.glsl
+custom-shader = ./ghostty-shaders/cursor_blaze.glsl
+
+# custom-shader = ./ghostty-shaders/bettercrt.glsl
+# custom-shader = ./ghostty-shaders/bloom.glsl
+# custom-shader = ./ghostty-shaders/in-game-crt.glsl
+# custom-shader = ./ghostty-shaders/water.glsl
+# custom-shader = ./ghostty-shaders/drunkard.glsl
+# custom-shader = ./ghostty-shaders/inside-the-matrix.glsl
+# custom-shader = ./ghostty-shaders/glitchy.glsl
+# custom-shader = ./ghostty-shaders/starfield-colors.glsl
+
