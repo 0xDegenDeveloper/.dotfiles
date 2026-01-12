@@ -33,13 +33,13 @@ vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<CR>", {
   desc = "Horizontal Split",
 })
 
--- Open the dashboard on launch
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    -- Open the dashboard
-    vim.cmd("Dashboard")
-  end,
-})
+-- -- Open the dashboard on launch
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     -- Open the dashboard
+--     vim.cmd("Dashboard")
+--   end,
+-- })
 
 vim.api.nvim_create_user_command("SetCurrentColorschemeAsDefault", function()
   -- Get the current colorscheme
