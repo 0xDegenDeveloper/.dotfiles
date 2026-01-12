@@ -10,7 +10,21 @@
 
 ## So Far
 
+### Ghostty
+
+Might need to bind the additional config file to base config file (located in `/Users/mattcarter/Library/Application Support/com.mitchellh.ghostty/config
+`), by adding:
+
+```
+
+config-file = /Users/mattcarter/.config/ghostty/config
+```
+
+> Might work out of the box in the default location
+
 ### Alacritty
+
+No longer using this as primary
 
 ### Nvim
 
