@@ -129,7 +129,7 @@ _scarb() {
 autoload -Uz compinit && compinit
 compdef _scarb scarb
 
-# # END SCARB COMPLETIONS
-# export PATH=$PATH:$(go env GOPATH)/bin
-# 
-# export PATH="$PATH:/Users/mattcarter/.risc0/bin"
+# END SCARB COMPLETIONS
+export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="$PATH:/Users/mattcarter/.risc0/bin"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

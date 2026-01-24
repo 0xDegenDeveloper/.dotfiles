@@ -10,7 +10,6 @@ Use Stow for symlinks
 brew install stow
 ```
 
-
 Add a package to this repo using the package name, followed by the path it should assume in the home directory. i.e, nvim needs to be placed in `~/.config/nvim/`, so it is named `nvim/.config/nvim`.
 
 - Clone this repo to your home directory and cd into it. For each package you want to use, run `stow <package name>` (i.e, `stow nvim`)
@@ -74,3 +73,10 @@ git config --global --replace-all alias.sync '!f() { \
 ```
 
 Any `linux` or `apple` specific changes should only be pushed to that branch.
+
+
+## Other
+
+For new machines, install [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
+
+See [others/key_binds](/others/key_binds/README.md) for additional configs.
