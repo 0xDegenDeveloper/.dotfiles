@@ -1,4 +1,4 @@
-tell application "Safari"
+tell application "Brave Browser"
     if it is running then
         activate
     else
