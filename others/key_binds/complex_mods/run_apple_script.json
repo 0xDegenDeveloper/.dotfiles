@@ -1,0 +1,24 @@
+{
+  "description": "Hyper + C to open code editor",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "c",
+        "modifiers": {
+          "mandatory": [
+            "left_control",
+            "left_command",
+            "left_option",
+            "left_shift"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "osascript ~/.dotfiles/others/key_binds/apple_scripts/open_apps/code_editor.scpt"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}
