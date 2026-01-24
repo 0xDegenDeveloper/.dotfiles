@@ -133,3 +133,4 @@ compdef _scarb scarb
 export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="$PATH:/Users/mattcarter/.risc0/bin"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
