@@ -2,16 +2,6 @@
 
 ## MacOS
 
-### Karabiner Elements
-
-Allows `right shift -> hyper` bind and key presses for apple scripts.
-
-- [Link](https://karabiner-elements.pqrs.org/)
-
-#### Complex Modifications
-
-Add complex mods from [here](./complex_mods/).
-
 ### Rectangle Pro
 
 For window management.
