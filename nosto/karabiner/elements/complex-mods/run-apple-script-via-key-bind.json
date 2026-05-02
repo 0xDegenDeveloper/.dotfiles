@@ -15,7 +15,7 @@
       },
       "to": [
         {
-          "shell_command": "osascript ~/.dotfiles/others/key_binds/apple_scripts/open_apps/code_editor.scpt"
+          "shell_command": "osascript ~/.dotfiles/others/apple_scripts/open_code_editor.scpt"
         }
       ],
       "type": "basic"

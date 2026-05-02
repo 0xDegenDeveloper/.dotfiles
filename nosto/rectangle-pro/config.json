@@ -38,7 +38,7 @@
       "int": 0
     },
     "applyGapToEdges": {
-      "int": 2
+      "int": 1
     },
     "appSpecs": {
       "string": "[]"
@@ -502,6 +502,10 @@
       "keyCode": 5,
       "modifierFlags": 1966080
     },
+    "firstTwoThirds": {
+      "keyCode": 13,
+      "modifierFlags": 1966080
+    },
     "leftHalf": {
       "keyCode": 14,
       "modifierFlags": 1966080
@@ -531,6 +535,6 @@
       "modifierFlags": 1966080
     }
   },
-  "timestamp": 790984419.77675,
+  "timestamp": 799431499.150301,
   "version": "204"
 }
