@@ -2,9 +2,9 @@ background = #1a1b26
 background-opacity = 0.4
 background-blur = 40
 
-custom-shader = ./ghostty-shaders/in-game-crt-cursor.glsl
 custom-shader = ./ghostty-shaders/cursor_blaze.glsl
 
+# custom-shader = ./ghostty-shaders/in-game-crt-cursor.glsl
 # custom-shader = ./ghostty-shaders/bettercrt.glsl
 # custom-shader = ./ghostty-shaders/bloom.glsl
 # custom-shader = ./ghostty-shaders/in-game-crt.glsl
