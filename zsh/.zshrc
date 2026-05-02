@@ -58,6 +58,8 @@ alias zshconfig='cd $HOME && nvim .zshrc'
 alias nf='/Users/mattcarter/NovemberFork/'
 alias nm='/Users/mattcarter/Work/Nethermind'
 alias work='/Users/mattcarter/Work'
+alias twi='/Users/mattcarter/Work/Nethermind/Twilight/'
+alias tsm='/Users/mattcarter/Work/Nethermind/Twilight/twilight-stability-module/'
 
 
 alias gs='git status'
@@ -134,3 +136,10 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="$PATH:/Users/mattcarter/.risc0/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+export NARGO_HOME="/Users/mattcarter/.nargo"
+
+export PATH="$PATH:$NARGO_HOME/bin"
+export PATH="${HOME}/.bb:${PATH}"
+export PATH="/Users/mattcarter/.bb:$PATH"
+export PATH="/Users/mattcarter/.bb:$PATH"
