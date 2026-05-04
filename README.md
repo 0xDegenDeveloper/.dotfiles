@@ -1,4 +1,4 @@
-# My Dotfiles
+# Dotfiles
 
 ## Usage
 
