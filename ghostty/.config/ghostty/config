@@ -1,6 +1,6 @@
 background = #1a1b26
 background-opacity = 0.4
-background-blur = 40
+background-blur = 255
 
 custom-shader = ./ghostty-shaders/cursor_blaze.glsl
 
@@ -14,3 +14,10 @@ custom-shader = ./ghostty-shaders/cursor_blaze.glsl
 # custom-shader = ./ghostty-shaders/glitchy.glsl
 # custom-shader = ./ghostty-shaders/starfield-colors.glsl
 
+
+
+
+
+### "The configuration can be reloaded at runtime by pressing ctrl+shift+, (Linux) or cmd+shift+, (macOS)"
+
+### background-blur max is 255
