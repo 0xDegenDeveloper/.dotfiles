@@ -40,7 +40,7 @@ alias reset='source $HOME/.zshrc'
 
 alias home='cd ~'
 alias cl='clear'
-alias ls='colorls'
+#alias ls='colorls'
 
 alias nf='/Users/mattcarter/NovemberFork/v3 && nvim'
 
@@ -141,5 +141,13 @@ export NARGO_HOME="/Users/mattcarter/.nargo"
 
 export PATH="$PATH:$NARGO_HOME/bin"
 export PATH="${HOME}/.bb:${PATH}"
+export PATH="/Users/mattcarter/.bb:$PATH"
+export PATH="/Users/mattcarter/.bb:$PATH"
+export PATH="/Users/mattcarter/.bb:$PATH"
+export PATH="/Users/mattcarter/.bb:$PATH"
+export PATH="/Users/mattcarter/.bb:$PATH"
+
+# kimi-code
+export PATH="/Users/mattcarter/.kimi-code/bin:$PATH"
 export PATH="/Users/mattcarter/.bb:$PATH"
 export PATH="/Users/mattcarter/.bb:$PATH"

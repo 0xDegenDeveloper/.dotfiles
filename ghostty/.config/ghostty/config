@@ -1,5 +1,5 @@
 background = #1a1b26
-background-opacity = 0.4
+background-opacity = 0.05
 background-blur = 255
 
 custom-shader = ./ghostty-shaders/cursor_blaze.glsl
