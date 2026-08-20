@@ -1,6 +1,12 @@
 # Dotfiles
 
-## Usage
+## How to add packages
+
+Add a package to this repo using the package name, followed by the path it should assume in the home directory. For example, nvim's config sits inside a folder at `~/.config/nvim/`, so we place it in this repo at `nvim/.config/nvim` (`pkg-name-for-sto/path/in/machine`). For another example, the tmux config file (`.tmux.conf`) sits inside a machine at `~/.tmux.conf`, to it is placed at `tmux/.tmux.conf` in this repo.
+
+- Clone this repo to your home directory and cd into it. For each package you want to use, run `stow <package name>` (i.e, `stow nvim`)
+
+## How to use a package
 
 ### Stow
 
@@ -10,38 +16,23 @@ Use Stow for symlinks
 brew install stow
 ```
 
+### Packages (Primary)
 
-Add a package to this repo using the package name, followed by the path it should assume in the home directory. i.e, nvim needs to be placed in `~/.config/nvim/`, so it is named `nvim/.config/nvim`.
+- ghostty - ok for now, figure out note below
+- nvim - need to fix node/npm version (only issue in nvim, not when in normal shell)
+- zsh - needs review, check on unused things (load is slow), reduce deps
 
-- Clone this repo to your home directory and cd into it. For each package you want to use, run `stow <package name>` (i.e, `stow nvim`)
+> Might need to bind the additional config file to base config file (located in `/Users/mattcarter/Library/Application Support/com.mitchellh.ghostty/config
+`), by adding: `config-file = /Users/mattcarter/.config/ghostty/config`. Might work out of the box in the default location
 
-## So Far
+---
 
-### Ghostty
+## Open Todos
 
-Might need to bind the additional config file to base config file (located in `/Users/mattcarter/Library/Application Support/com.mitchellh.ghostty/config
-`), by adding:
+- [ ] Update raycast backup (automate/stow?)
+- [ ] Clean/push/prep for m5
 
-```
-
-config-file = /Users/mattcarter/.config/ghostty/config
-```
-
-> Might work out of the box in the default location
-
-### Alacritty
-
-No longer using this as primary
-
-### Nvim
-
-### Hyprland
-
-## What's Missing
-
-### Cursor
-
-### ...
+---
 
 ## Linux Vs Apple
 
