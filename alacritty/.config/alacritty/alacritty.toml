@@ -35,16 +35,17 @@ background = '#7aa2f7'
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "Adwaita Mono" }
-bold = { family = "Adwaita Mono" }
-italic = { family = "Adwaita Mono" }
-size = 9
+normal = { family = "AdwaitaMono Nerd Font" }
+bold = { family = "AdwaitaMono Nerd Font" }
+italic = { family = "AdwaitaMono Nerd Font" }
+size = 20
 
 [window]
-padding.x = 4
-padding.y = 4
-decorations = "None"
+padding.x = 8
+padding.y = 8
+decorations = "Buttonless"
 opacity = 0.6
+blur = true
 
 [keyboard]
 bindings = [
