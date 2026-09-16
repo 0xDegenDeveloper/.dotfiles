@@ -1,67 +1,40 @@
 # Dotfiles
 
-## How to add packages
+Mac-first configs, linked with [GNU Stow](https://www.gnu.org/software/stow/). Branch `main` is this machine. `linux` is leftover and ignored. `apple` is unused.
 
-Add a package to this repo using the package name, followed by the path it should assume in the home directory. For example, nvim's config sits inside a folder at `~/.config/nvim/`, so we place it in this repo at `nvim/.config/nvim` (`pkg-name-for-sto/path/in/machine`). For another example, the tmux config file (`.tmux.conf`) sits inside a machine at `~/.tmux.conf`, to it is placed at `tmux/.tmux.conf` in this repo.
+**New Mac:** follow **[others/SETUP.md](others/SETUP.md)** (installs, casks, nvm, Raycast import). Passwords and licenses stay in Obsidian. Add new apps to that checklist when you decide they should persist.
 
-- Clone this repo to your home directory and cd into it. For each package you want to use, run `stow <package name>` (i.e, `stow nvim`)
+### Ghostty
 
-## How to use a package
+Real config is `~/.config/ghostty/config` (this repo). On macOS Ghostty *also* loads `~/Library/Application Support/com.mitchellh.ghostty/config` **after** that, and Cmd+, often opens the App Support file. Delete the App Support `config` so only the stowed file remains.
 
-### Stow
+### Neovim / Node
 
-Use Stow for symlinks
+GUI Neovim does not load `.zshrc`. `init.lua` prepends nvm’s default Node onto `PATH` so `:!node -v` matches Ghostty.
+
+### SSH (Termius)
+
+Same user, same home: aliases, Tab completion, and prefix+Up history come from `.zshrc` (no Oh My Zsh). A running Claude Code in Ghostty is a different process — use tmux if you want the same session. Claude OAuth on macOS lives in Keychain and often fails over SSH; `security unlock-keychain` once per session, never commit `~/.claude/.credentials.json`.
+
+## Stow layout
+
+Package name, then the path as it should appear under `$HOME`:
+
+- `nvim/.config/nvim` → `~/.config/nvim`
+- `tmux/.tmux.conf` → `~/.tmux.conf`
 
 ```bash
 brew install stow
+cd ~/.dotfiles
+stow nvim
 ```
 
-### Packages (Primary)
+## Packages
 
-- ghostty - ok for now, figure out note below
-- nvim - need to fix node/npm version (only issue in nvim, not when in normal shell)
-- zsh - needs review, check on unused things (load is slow), reduce deps
+- **zsh** — self-contained (completion, history search, nvm last). No Oh My Zsh. Prompt: Starship.
+- **starship** — `~/.config/starship.toml`
+- **ghostty** — `~/.config/ghostty/config` only
+- **nvim** — LazyVim
+- **tmux** — optional; attach from the phone to keep a live CLI session
 
-> Might need to bind the additional config file to base config file (located in `/Users/mattcarter/Library/Application Support/com.mitchellh.ghostty/config
-`), by adding: `config-file = /Users/mattcarter/.config/ghostty/config`. Might work out of the box in the default location
-
----
-
-## Open Todos
-
-- [ ] Update raycast backup (automate/stow?)
-- [ ] Clean/push/prep for m5
-
----
-
-## Linux Vs Apple
-
-The `main` branch has the common/shared config, and the `linux` and `apple` branches have their own custom tweaks. ALL shared changes should be pushed to `main`. After pushing to main, run `git sync` to sync the changes on the other two branches.
-
-For new machines, you need to run this to set the git alias:
-
-```bash
-git config --global --replace-all alias.sync '!f() { \
-  echo "Syncing main to linux & apple..."; \
-  if git rev-parse --verify linux >/dev/null 2>&1; then \
-    git checkout linux; \
-  else \
-    echo "  Creating linux branch from main"; \
-    git checkout -b linux main; \
-  fi; \
-  git merge main --no-edit && (git push -u origin linux 2>/dev/null || git push); \
-  \
-  if git rev-parse --verify apple >/dev/null 2>&1; then \
-    git checkout apple; \
-  else \
-    echo "  Creating apple branch from main"; \
-    git checkout -b apple main; \
-  fi; \
-  git merge main --no-edit && (git push -u origin apple 2>/dev/null || git push); \
-  \
-  git checkout main; \
-  echo "Done! Both branches synced."; \
-}; f'
-```
-
-Any `linux` or `apple` specific changes should only be pushed to that branch.
+Karabiner, Rectangle, and Raycast live under `others/` (notes + imports, not Stow). Encrypted Raycast `.rayconfig` exports are tracked; passphrase is in Obsidian.

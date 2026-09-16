@@ -1,0 +1,92 @@
+# Readable without a nerd font (Ghostty + Termius). Add symbols later if you want.
+
+# add_newline = true
+# 
+# format = """
+# $directory\
+# $git_branch\
+# $git_status\
+# $nodejs\
+# $rust\
+# $cmd_duration\
+# $line_break\
+# $character"""
+# 
+# [character]
+# success_symbol = "[❯](bold green)"
+# error_symbol = "[❯](bold red)"
+# 
+# [directory]
+# truncation_length = 3
+# truncate_to_repo = true
+# style = "bold cyan"
+# 
+# [git_branch]
+# symbol = ""
+# format = "[$branch]($style) "
+# 
+# [git_status]
+# format = "([$all_status$ahead_behind]($style) )"
+# 
+# [nodejs]
+# symbol = "node "
+# format = "[$symbol($version )]($style)"
+# 
+# [rust]
+# symbol = "rs "
+# format = "[$symbol($version )]($style)"
+# 
+# [cmd_duration]
+# min_time = 2000
+# format = "[$duration]($style) "
+
+# prezto.toml
+add_newline = false
+
+# A minimal left prompt
+format = """$python$directory$character"""
+
+# move the rest of the prompt to the right
+right_format = """$status$all"""
+
+[character]
+success_symbol = "[❯](red)[❯](yellow)[❯](green)"
+error_symbol = "[❯](red)[❯](yellow)[❯](green)"
+vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
+
+[git_branch]
+format = '[$branch]($style) '
+style = 'bold green'
+
+[python]
+format = '\($virtualenv\) '
+
+[git_status]
+format = '$all_status$ahead_behind '
+ahead = '[⬆](bold purple) '
+behind = '[⬇](bold purple) '
+staged = '[✚](green) '
+deleted = '[✖](red) '
+renamed = '[➜](purple) '
+stashed = '[✭](cyan) '
+untracked = '[◼](white) '
+modified = '[✱](blue) '
+conflicted = '[═](yellow) '
+diverged = '⇕ '
+up_to_date = ''
+
+[directory]
+style = "blue"
+truncation_length = 1
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+format = '[$duration]($style) '
+
+[line_break]
+disabled = true
+
+[status]
+disabled = false
+symbol = '✘ '

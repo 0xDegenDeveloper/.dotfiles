@@ -1,77 +1,41 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
+-- Use nvm's default Node even when Neovim was not started from an interactive zsh.
+local nvm_dir = vim.env.HOME .. "/.nvm"
+
+local function nvm_resolve_bin(name, seen)
+  if not name or name == "" then
+    return nil
+  end
+  seen = seen or {}
+  if seen[name] then
+    return nil
+  end
+  seen[name] = true
+
+  local version = name:gsub("^v", "")
+  local bin = nvm_dir .. "/versions/node/v" .. version .. "/bin"
+  if vim.fn.isdirectory(bin) == 1 then
+    return bin
+  end
+
+  local alias_file = nvm_dir .. "/alias/" .. name
+  if vim.fn.filereadable(alias_file) == 1 then
+    local next_name = vim.fn.trim(vim.fn.readfile(alias_file)[1] or "")
+    return nvm_resolve_bin(next_name, seen)
+  end
+
+  return nil
+end
+
+local nvm_bin = nvm_resolve_bin("default")
+if nvm_bin then
+  vim.env.PATH = nvm_bin .. ":" .. vim.env.PATH
+end
+
 require("config.lazy")
---require("config.autocmds")
 
--- Enable spell checking by default
-vim.opt.spell = true
---vim.g.mapleader = " "
-
--- Set default theme
 vim.cmd.colorscheme("catppuccin-frappe")
 
--- Use <leader> + <w> + "|" or "-" for window splitting
--- |: veritiacl split
--- -: horizontal split
-vim.api.nvim_set_keymap("n", "<leader>w|", "<cmd>vsplit<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Vertical Split",
-})
-vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Vertical Split",
-})
-vim.api.nvim_set_keymap("n", "<leader>w-", "<cmd>split<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Horizontal Split",
-})
-vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<CR>", {
-  noremap = true,
-  silent = true,
-  desc = "Horizontal Split",
-})
-
--- -- Open the dashboard on launch
--- vim.api.nvim_create_autocmd("VimEnter", {
---   callback = function()
---     -- Open the dashboard
---     vim.cmd("Dashboard")
---   end,
--- })
-
-vim.api.nvim_create_user_command("SetCurrentColorschemeAsDefault", function()
-  -- Get the current colorscheme
-  local current = vim.g.colors_name
-
-  if current and current ~= "" then
-    -- Update the init.lua file to set this colorscheme
-    local init_file = vim.fn.stdpath("config") .. "/init.lua"
-    local content = io.open(init_file, "r"):read("*all")
-
-    -- Replace or add the colorscheme line
-    if content:find("vim.cmd.colorscheme%(") then
-      content = content:gsub('vim.cmd.colorscheme%(".-"%)', 'vim.cmd.colorscheme("catppuccin-frappe")')
-    else
-      content = content .. '\n\n-- Set default colorscheme\nvim.cmd.colorscheme("catppuccin-frappe")\n'
-    end
-
-    -- Write back to the file
-    local file = io.open(init_file, "w")
-    if file then
-      file:write(content)
-      file:close()
-      vim.notify("Default colorscheme set to " .. current, vim.log.levels.INFO)
-    else
-      vim.notify("Failed to write to " .. init_file, vim.log.levels.ERROR)
-    end
-  else
-    vim.notify("No colorscheme is currently set", vim.log.levels.ERROR)
-  end
-end, {})
-
--- Add a keymap to set the current colorscheme as default
-vim.keymap.set("n", "<leader>cP", function()
-  vim.cmd("SetCurrentColorschemeAsDefault")
-end, { desc = "Set Colorscheme" })
+vim.keymap.set("n", "<leader>w|", "<cmd>vsplit<CR>", { desc = "Vertical Split" })
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical Split" })
+vim.keymap.set("n", "<leader>w-", "<cmd>split<CR>", { desc = "Horizontal Split" })
+vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Horizontal Split" })

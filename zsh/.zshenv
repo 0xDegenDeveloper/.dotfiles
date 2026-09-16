@@ -1,22 +1,19 @@
-# Environment variables loaded before .zshrc
-# Cleaned up duplicate PATH entries
+# Loaded for every zsh (including scripts). Keep this tiny and silent.
 
-# Local bin
-export PATH="$PATH:$HOME/.local/bin"
+path_add() {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) PATH="$PATH:$1" ;;
+  esac
+}
 
-# Development tools
-export PATH="$PATH:$HOME/.dojo/bin"
-export PATH="$PATH:$HOME/.slot/bin"
-export PATH="$PATH:$HOME/.foundry/bin"
+path_add "$HOME/.local/bin"
+[[ -d "$HOME/.dojo/bin" ]] && path_add "$HOME/.dojo/bin"
+[[ -d "$HOME/.slot/bin" ]] && path_add "$HOME/.slot/bin"
+[[ -d "$HOME/.foundry/bin" ]] && path_add "$HOME/.foundry/bin"
 
-# Starkli environment
-if [ -f "$HOME/.starkli/env" ]; then
-  . "$HOME/.starkli/env"
-fi
+[[ -f "$HOME/.starkli/env" ]] && . "$HOME/.starkli/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
-# Cargo environment
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-
-export PATH="$PATH:/home/matt/.config/.foundry/bin"
+unset -f path_add
+export PATH

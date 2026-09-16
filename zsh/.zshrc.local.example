@@ -1,0 +1,7 @@
+# Copy to ~/.zshrc.local (not tracked). Machine-specific jumps and secrets.
+
+# alias nf="$HOME/NovemberFork/"
+# alias nm="$HOME/Work/Nethermind"
+# alias work="$HOME/Work"
+# alias twi="$HOME/Work/Nethermind/Twilight/"
+# alias tsm="$HOME/Work/Nethermind/Twilight/twilight-stability-module/"

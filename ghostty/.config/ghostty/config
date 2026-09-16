@@ -14,10 +14,7 @@ custom-shader = ./ghostty-shaders/cursor_blaze.glsl
 # custom-shader = ./ghostty-shaders/glitchy.glsl
 # custom-shader = ./ghostty-shaders/starfield-colors.glsl
 
+shell-integration-features = ssh-env,ssh-terminfo
 
-
-
-
-### "The configuration can be reloaded at runtime by pressing ctrl+shift+, (Linux) or cmd+shift+, (macOS)"
-
-### background-blur max is 255
+# Reload: cmd+shift+, (macOS). Keep this as the only Ghostty config:
+# delete ~/Library/Application Support/com.mitchellh.ghostty/config if it exists.
