@@ -5,6 +5,8 @@ HISTFILE="${HISTFILE:-$HOME/.zsh_history}"
 HISTSIZE=50000
 SAVEHIST=50000
 setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_VERIFY EXTENDED_HISTORY
+# typing a directory name (or `..`) cds there — OMZ did this; without it, dirs are "executed" (permission denied)
+setopt AUTO_CD
 
 # --- completion (case-insensitive Tab) ---
 autoload -Uz compinit
@@ -77,14 +79,14 @@ alias ttb='npx blueprint build --all'
 
 alias starkup="curl --proto '=https' --tlsv1.2 -sSf https://sh.starkup.sh | sh -s --"
 
-# --- tools on PATH ---
+# --- tools on PATH (append unless a comment says why we prepend) ---
 export BUN_INSTALL="$HOME/.bun"
+# prepend: bun/bunx ahead of any Homebrew shims
 path_prepend "$BUN_INSTALL/bin"
 [[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  path_prepend "/opt/homebrew/opt/postgresql@16/bin"
-fi
+# prepend: Homebrew keg so `psql` is 16, not another postgres
+path_prepend "/opt/homebrew/opt/postgresql@16/bin"
 
 if command -v go >/dev/null 2>&1; then
   path_append "$(go env GOPATH)/bin"
@@ -93,10 +95,11 @@ fi
 path_append "$HOME/.risc0/bin"
 export NARGO_HOME="${NARGO_HOME:-$HOME/.nargo}"
 path_append "$NARGO_HOME/bin"
-path_prepend "$HOME/.bb"
-path_prepend "$HOME/.kimi-code/bin"
+path_append "$HOME/.bb"
+path_append "$HOME/.kimi-code/bin"
+path_append "/Applications/Obsidian.app/Contents/MacOS"
 
-# nvm last so its node wins over Homebrew/system
+# last: nvm.sh prepends its node so it wins over Homebrew/system `node`
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
 [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"

@@ -6,3 +6,6 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
+
+# PATH folders (Obsidian, bun, nargo, …) belong in ~/.zshrc, not here.
+# Installers that append to this file should be moved there.
