@@ -46,6 +46,7 @@ path_append() {
 alias reload='source "$HOME/.zshrc"'
 alias home='cd ~'
 alias cl='clear'
+#alias ls='colorls'
 
 alias nvimconfig='cd "$HOME/.config/nvim" && nvim'
 alias nvimsettings='nvimconfig'
