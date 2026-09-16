@@ -36,5 +36,6 @@ stow nvim
 - **ghostty** — `~/.config/ghostty/config` only
 - **nvim** — LazyVim
 - **tmux** — optional; attach from the phone to keep a live CLI session
+- **hammerspoon** — `~/.hammerspoon` (MouseFollowsFocus spoon)
 
 Karabiner, Rectangle, and Raycast live under `others/` (notes + imports, not Stow). Encrypted Raycast `.rayconfig` exports are tracked; passphrase is in Obsidian.
