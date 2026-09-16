@@ -7,8 +7,10 @@ Copy a row when you add something you care about. Uncheck on a fresh Mac, check 
 Template:
 
 ```
-- [ ] Name — install command — why / notes
+- [ ] Name — `brew install --cask foo` or https://… — why / notes
 ```
+
+Almost every GUI app on the main Mac has a Homebrew **cask**. Prefer `brew install --cask …` so a new machine is mostly one terminal session. If something has no cask, put the download URL on the same line.
 
 ---
 
@@ -30,7 +32,7 @@ Template:
 
 ```bash
 cd ~/.dotfiles
-stow zsh nvim ghostty tmux starship
+stow zsh nvim ghostty tmux starship hammerspoon
 cp ~/.dotfiles/zsh/.zshrc.local.example ~/.zshrc.local
 # edit ~/.zshrc.local for this machine's folders
 ```
@@ -53,27 +55,71 @@ Neovim prepends this nvm default onto `PATH` so GUI nvim matches the terminal.
 
 ---
 
-## 3. Apps (not stowed — install, then import)
+## 3. Apps (casks — not stowed)
 
-| App | Install | Config in this repo |
+Install, then import configs where noted. One shot for the daily set (edit the list if you do not want something):
+
+```bash
+brew install --cask \
+  brave-browser \
+  discord \
+  claude \
+  cursor \
+  docker-desktop \
+  flux-app \
+  font-adwaita-mono-nerd-font \
+  ghostty \
+  granola \
+  github \
+  google-chrome \
+  hammerspoon \
+  hiddenbar \
+  itsycal \
+  karabiner-elements \
+  key-codes \
+  localsend \
+  notion \
+  obsidian \
+  raycast \
+  rectangle-pro \
+  stats \
+  signal \
+  slack \
+  spotify \
+  tailscale-app \
+  zoom
+```
+
+| App | Cask | Notes |
 | --- | --- | --- |
-| Ghostty | `brew install --cask ghostty` | `stow ghostty` |
-| Raycast | `brew install --cask raycast` | [raycast/](raycast/README.md) — import `.rayconfig` |
-| Karabiner-Elements | `brew install --cask karabiner-elements` | [karabiner/elements/README.md](karabiner/elements/README.md) |
-| Rectangle Pro | `brew install --cask rectangle-pro` | [rectangle-pro/](rectangle-pro/README.md) + Obsidian license |
-| Font (optional) | `brew install --cask font-adwaita-mono-nerd-font` | Starship works without it |
+| Ghostty | `ghostty` | then `stow ghostty` |
+| Hammerspoon | `hammerspoon` | then `stow hammerspoon` (`~/.hammerspoon`) |
+| Obsidian | `obsidian` | vaults/sync in Obsidian itself; CLI PATH is in `.zshrc` if the app exists |
+| Raycast | `raycast` | [raycast/](raycast/README.md) — import `.rayconfig` |
+| Karabiner-Elements | `karabiner-elements` | [karabiner/elements/README.md](karabiner/elements/README.md) |
+| Rectangle Pro | `rectangle-pro` | [rectangle-pro/](rectangle-pro/README.md) + Obsidian license |
+| Nerd font (optional) | `font-adwaita-mono-nerd-font` | Starship works without it |
+| Stats | `stats` | menu bar |
+| Hidden Bar | `hiddenbar` | menu bar |
+| Itsycal | `itsycal` | menu bar calendar |
+| AltTab | `alt-tab` | |
+| LocalSend | `localsend` | |
+| Docker Desktop | `docker-desktop` | |
+| Tailscale | `tailscale-app` | GUI. CLI is `brew install tailscale` if you want `tailscale` in the terminal |
+| Brave | `brave-browser` | |
+| GitHub Desktop | `github` | |
+| Signal | `signal` | |
+| Cursor | `cursor` | |
+| Discord | `discord` | |
+| Slack | `slack` | |
+| Spotify | `spotify` | |
+| Chrome | `google-chrome` | |
+| Notion | `notion` | |
+| Zoom | `zoom` | |
 
-Menu bar (confirmed on the main Mac, 2026-09):
+No-cask / website-only (add here when you hit one):
 
-- [ ] **Stats** — `brew install --cask stats`
-- [ ] **Hidden Bar** — `brew install --cask hiddenbar`
-- [ ] **Itsycal** — `brew install --cask itsycal`
-
-Also on the main Mac (keep / drop as you like):
-
-- [ ] AltTab — `brew install --cask alt-tab`
-- [ ] LocalSend — `brew install --cask localsend`
-- [ ] Docker Desktop — `brew install --cask docker-desktop`
+- [ ]
 
 ---
 
@@ -94,9 +140,11 @@ Aliases like `cr` / `sb` still *exist* before the tools do; running them fails u
 
 - [ ] New Ghostty tab (Starship + nvm)
 - [ ] `node -v` in terminal and in nvim (`:!node -v`) — both nvm 22
+- [ ] Obsidian: enable CLI if you want `Obsidian` in the terminal (PATH already points at the `.app` when it exists)
 - [ ] Raycast: Import Settings & Data → latest `others/raycast/*.rayconfig` → passphrase from Obsidian
 - [ ] Karabiner simple mods (caps → control, right option → caps) + Hyper from JSON
 - [ ] Rectangle Pro: import `others/rectangle-pro/config.json`
+- [ ] Hammerspoon: enable Accessibility if prompted; Reload Config
 
 ---
 
