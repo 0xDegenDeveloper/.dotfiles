@@ -59,6 +59,7 @@ alias nnn='nvim'
 
 alias zshconfig='nvim "$HOME/.zshrc"'
 
+alias gg='lazygit'
 alias gs='git status -sb'
 alias gc='git commit'
 alias gp='git push'
