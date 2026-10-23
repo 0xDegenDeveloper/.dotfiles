@@ -6,9 +6,3 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
---
--- Don't auto comment new lines
--- autocmd("BufEnter", { pattern = "", command = "set fo-=c fo-=r fo-=o" })
---
--- Remove whitespace on save
--- autocmd("BufWritePre", { pattern = "", command = ":%s/\\s\\+$//e" })

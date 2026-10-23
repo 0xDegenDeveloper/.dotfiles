@@ -18,7 +18,7 @@ return {
         "tsx",
         "typescript",
         "vim",
-        "yaml", -- "tact"
+        "yaml",
       },
       auto_install = true,
       highlight = { enable = true },

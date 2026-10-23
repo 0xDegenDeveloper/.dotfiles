@@ -34,8 +34,3 @@ end
 require("config.lazy")
 
 vim.cmd.colorscheme("catppuccin-frappe")
-
-vim.keymap.set("n", "<leader>w|", "<cmd>vsplit<CR>", { desc = "Vertical Split" })
-vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical Split" })
-vim.keymap.set("n", "<leader>w-", "<cmd>split<CR>", { desc = "Horizontal Split" })
-vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Horizontal Split" })
