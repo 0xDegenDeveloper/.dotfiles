@@ -32,7 +32,8 @@ Almost every GUI app on the main Mac has a Homebrew **cask**. Prefer `brew insta
 
 ```bash
 cd ~/.dotfiles
-stow zsh nvim ghostty tmux starship hammerspoon
+stow zsh nvim ghostty tmux starship hammerspoon theme
+theme-set frappe
 cp ~/.dotfiles/zsh/.zshrc.local.example ~/.zshrc.local
 # edit ~/.zshrc.local for this machine's folders
 ```

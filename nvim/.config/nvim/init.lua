@@ -32,5 +32,4 @@ if nvm_bin then
 end
 
 require("config.lazy")
-
-vim.cmd.colorscheme("catppuccin-frappe")
+require("config.theme").apply()
