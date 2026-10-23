@@ -1,8 +1,11 @@
 background = #1a1b26
-background-opacity = 0.82
+background-opacity = 0.55
 background-blur = 255
 
 custom-shader = ./ghostty-shaders/cursor_blaze.glsl
+
+font-family = "AdwaitaMono Nerd Font Mono Bold"
+font-size = 14
 
 # custom-shader = ./ghostty-shaders/in-game-crt-cursor.glsl
 # custom-shader = ./ghostty-shaders/bettercrt.glsl
@@ -18,3 +21,28 @@ shell-integration-features = ssh-env,ssh-terminfo
 
 # Reload: cmd+shift+, (macOS). Keep this as the only Ghostty config:
 # delete ~/Library/Application Support/com.mitchellh.ghostty/config if it exists.
+
+palette = 0=#0C0D81
+palette = 1=#FF62B2
+palette = 2=#51ffA2
+palette = 3=#FFC34E
+palette = 4=#2EE0E9
+palette = 5=#D486D4
+palette = 6=#DBE7FF
+palette = 7=#FFFFFF
+palette = 8=#DEDEDE
+palette = 9=#ffc4bd
+palette = 10=#d6fcb9
+palette = 11=#FFC34E
+palette = 12=#c1e3fe
+palette = 13=#ffb1fe
+palette = 14=#86ADFF
+palette = 15=#feffff
+
+foreground = #B0B2C6
+
+cursor-color = #FFF
+cursor-text = #191A1C
+
+selection-background = #B2BBD5
+selection-foreground = #191A1C
