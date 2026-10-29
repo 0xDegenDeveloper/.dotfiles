@@ -22,6 +22,8 @@ Package name, then the path as it should appear under `$HOME`:
 
 - `nvim/.config/nvim` → `~/.config/nvim`
 - `tmux/.tmux.conf` → `~/.tmux.conf`
+- `theme/.config/theme` → `~/.config/theme`
+- `theme/.local/bin/theme-set` → `~/.local/bin/theme-set`
 
 ```bash
 brew install stow
@@ -36,6 +38,7 @@ stow nvim
 - **ghostty** — `~/.config/ghostty/config` only
 - **nvim** — LazyVim
 - **tmux** — optional; attach from the phone to keep a live CLI session
+- **theme** — Catppuccin flavor for Ghostty, tmux, Neovim, Starship (`theme-set frappe`)
 - **hammerspoon** — `~/.hammerspoon` (MouseFollowsFocus spoon)
 
 Karabiner, Rectangle, and Raycast live under `others/` (notes + imports, not Stow). Encrypted Raycast `.rayconfig` exports are tracked; passphrase is in Obsidian.
