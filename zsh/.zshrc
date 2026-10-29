@@ -69,15 +69,6 @@ alias sb='scarb build'
 alias st='scarb test'
 alias sf='scarb fmt'
 
-alias cr='cargo run'
-alias cf='cargo fmt'
-alias rrr='cl && cf && cr'
-
-alias tact='npx blueprint'
-alias tt='npx blueprint'
-alias ttt='npx blueprint test'
-alias ttb='npx blueprint build --all'
-
 alias starkup="curl --proto '=https' --tlsv1.2 -sSf https://sh.starkup.sh | sh -s --"
 
 # --- tools on PATH (append unless a comment says why we prepend) ---
