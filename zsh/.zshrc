@@ -114,3 +114,49 @@ unset -f path_prepend path_append
 
 # machine-specific aliases (not in git)
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+#
+awake() {
+  echo "How many hours to disable sleep? (1-48, empty = cancel)"
+  read -r hours
+
+  # Only accept numbers less than 49
+  if [[ ! "$hours" =~ ^[0-9]+$ ]] || (( hours > 48 )) || (( hours < 1 )); then
+    echo "Cancelled. Must be a number between 1 and 48."
+    return 1
+  fi
+
+  local seconds=$((hours * 3600))
+  echo "→ About to disable sleep for $hours hour(s)"
+  echo "→ Will automatically re-enable after $hours hour(s)"
+  echo "→ To stop early, run: asleep"
+
+  # Disable sleep
+  sudo pmset -a disablesleep 1
+
+  # Background timer that re-enables sleep
+  (
+    sleep "$seconds"
+    sudo pmset -a disablesleep 0
+    echo "[awake] Sleep re-enabled after $hours hour(s)"
+  ) &
+
+  # Remember the PID so we can kill it early
+  echo $! > /tmp/awake-timer.pid
+  echo "Timer started (PID $!)"
+}
+
+asleep() {
+  echo "→ Re-enabling sleep now"
+  sudo pmset -a disablesleep 0
+
+  # Kill the background timer if it's still running
+  if [[ -f /tmp/awake-timer.pid ]]; then
+    local pid=$(cat /tmp/awake-timer.pid)
+    if kill -0 "$pid" 2>/dev/null; then
+      kill "$pid" 2>/dev/null
+      echo "Killed pending timer (PID $pid)"
+    fi
+    rm -f /tmp/awake-timer.pid
+  fi
+}
