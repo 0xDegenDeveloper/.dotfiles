@@ -1,3 +1,4 @@
+-- generate more: https://asciify.art/?text=mf&font=ansi-shadow
 return {
   "folke/snacks.nvim",
   opts = {
